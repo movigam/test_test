@@ -1,6 +1,9 @@
 import styles from "../../styles/contact.module.css";
+import { useRouter } from "next/navigation";
 
 const Contact = () => {
+  const router = useRouter();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
@@ -8,23 +11,22 @@ const Contact = () => {
     const email = form.get("email") || "";
     const message = form.get("message") || "";
 
-    try {
-      await fetch("api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-        }),
-      }).then((res) => alert(res.status));
-    } catch (error) {
-      throw new Error("Error Occur");
-    }
+    const res = await fetch("api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        message: message,
+      }),
+    });
+    const data = await res.json();
+    alert(data.message);
+    router.refresh();
   };
-  
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Contact Form</h1>

@@ -1,4 +1,5 @@
 import styles from "../../styles/blog.module.css";
+import Link from "next/link";
 
 import { useRouter } from "next/navigation";
 
@@ -9,9 +10,9 @@ const BlogId = (props) => {
 
   return (
     <div className={styles.container}>
-      <button onClick={() => router.back()} className={styles.button}>
+      <Link href={"/"} className={styles.button}>
         {"< 戻る"}
-      </button>
+      </Link>
       <h1 className={styles.heading}>{props.title}</h1>
       <time dateTime={props.publishedAt} className={styles.time}>
         {props.publishedAt.substring(0, 10)}
