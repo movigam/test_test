@@ -1,0 +1,35 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: bold;
+}
+
+.totalCount {
+  margin-top: 2rem;
+  color: #212529;
+  opacity: 0.7;
+  cursor: default;
+}
+
+.list {
+  margin-top: 1rem;
+}
+
+.listItem {
+  margin-bottom: 1rem;
+}
+
+.link {
+  font-size: 1.5rem;
+  color: #0070f3;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #0056b3;
+}
