@@ -7,7 +7,7 @@ const Contact = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
-    const name = form.get("name") || "";
+    // name の入力値を取得しよう！
     const email = form.get("email") || "";
     const message = form.get("message") || "";
 
@@ -17,7 +17,8 @@ const Contact = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name: name,
+        // name の入力値をリクエストに含めよう！
+
         email: email,
         message: message,
       }),
@@ -31,12 +32,12 @@ const Contact = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>Contact Form</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <label htmlFor="name" className={styles.label}>
+        <label htmlFor="" className={styles.label}>
           <span>name</span>
           <input
             type="text"
-            name="name"
-            placeholder="your name"
+            name=""
+            placeholder=""
             defaultValue=""
             className={styles.input}
           />
