@@ -19,7 +19,7 @@ const Contact = () => {
       },
       body: JSON.stringify({
         // name の入力値をリクエストに含めよう！
-        nema: name,
+        name: name,
         email: email,
         message: message,
       }),
