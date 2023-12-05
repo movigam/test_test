@@ -4,7 +4,7 @@ const handler = async (req, res) => {
   const notionClient = new Client({
     auth: process.env.NOTION_TOKEN,
   });
-  const { email, message } = req.body;
+  const { name, email, message } = req.body;
   const date = new Date().toISOString();
 
   if (req.method !== "POST") {

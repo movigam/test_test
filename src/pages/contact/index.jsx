@@ -8,6 +8,7 @@ const Contact = () => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     // name の入力値を取得しよう！
+    const name = form.get("name") || "";
     const email = form.get("email") || "";
     const message = form.get("message") || "";
 
@@ -18,7 +19,7 @@ const Contact = () => {
       },
       body: JSON.stringify({
         // name の入力値をリクエストに含めよう！
-
+        nema: name,
         email: email,
         message: message,
       }),
@@ -32,12 +33,12 @@ const Contact = () => {
     <div className={styles.container}>
       <h1 className={styles.title}>Contact Form</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <label htmlFor="" className={styles.label}>
+        <label htmlFor="name" className={styles.label}>
           <span>name</span>
           <input
             type="text"
-            name=""
-            placeholder=""
+            name="name"
+            placeholder="your name"
             defaultValue=""
             className={styles.input}
           />
